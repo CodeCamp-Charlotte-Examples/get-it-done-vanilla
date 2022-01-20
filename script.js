@@ -20,31 +20,17 @@ function addTask(e) {
 
 
   // append item to list
-  const list = getListNode("task-list", "task-list-container");
+  const list = document.getElementById("task-list");
   list.append(listItem);
 
   updateTaskTotal(list.childNodes.length);
 }
 
-function getListNode(listId, parentId) {
-  let list = document.getElementById(listId);
-
-  if (list) {
-    return list;
-  }
-
-  list = document.createElement("ul");
-  list.id = listId;
-  const container = document.getElementById(parentId);
-  container.append(list);
-  return list;
-}
-
 function completeTask(e) {
   const listItem = e.target;
-  const list = getListNode("task-list", "task-list-container");
-  const completedList = getListNode("completed-list", "completed-list-container");
-  list.remove(listItem);
+  const list = document.getElementById("task-list");
+  const completedList = document.getElementById("completed-list");
+  listItem.remove();
   listItem.removeEventListener("click", completeTask);
   
   completedList.append(listItem);
@@ -55,9 +41,9 @@ function completeTask(e) {
 
 function uncompleteTask(e) {
   const listItem = e.target;
-  const list = getListNode("task-list", "task-list-container");
-  const completedList = getListNode("completed-list", "completed-list-container");
-  completedList.remove(listItem);
+  const list = document.getElementById("task-list");
+  const completedList = document.getElementById("completed-list");
+  listItem.remove();
   listItem.removeEventListener("click", uncompleteTask);
   
   list.append(listItem);
