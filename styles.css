@@ -1,0 +1,17 @@
+h1, #task-total {
+    display: inline-block;
+}
+
+#task-total {
+    font-style: italic;
+    margin-left: 10px;
+    font-size: 80%;
+}
+
+#completed-list {
+    text-decoration: line-through;
+}
+
+ul {
+    list-style-type: square;
+}
